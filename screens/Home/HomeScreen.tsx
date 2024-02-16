@@ -1,12 +1,14 @@
-import {SafeAreaView, Text, View} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
+import Promotions from '../../components/Promotions';
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>HomeScreen</Text>
-      </View>
-    </SafeAreaView>
+    <>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFF" />
+      <SafeAreaView>
+        <Promotions />
+      </SafeAreaView>
+    </>
   );
 };
 

@@ -4,7 +4,9 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {Image, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import HomeHeaderLeft from '../components/HomeHeaderLeft';
+import HomeHeaderRight from '../components/HomeHeaderRight';
 import {Colors, Fonts} from '../constants';
 import FavoritesScreen from '../screens/Favorites/FavoritesScreen';
 import HomeScreen from '../screens/Home/HomeScreen';
@@ -61,29 +63,16 @@ const ApplicationNavigation = () => {
       <Tab.Navigator
         screenOptions={{
           tabBarShowLabel: false,
-          tabBarStyle: {
-            position: 'absolute',
-            bottom: 25,
-            left: 20,
-            right: 20,
-            elevation: 0,
-            backgroundColor: '#FFF',
-            borderRadius: 40,
-            height: 80,
-            borderStyle: 'solid',
-            borderTopWidth: 1,
-            borderBottomWidth: 1,
-            borderRightWidth: 1,
-            borderLeftWidth: 1,
-            borderColor: '#EEF1F2',
-          },
+          tabBarStyle: styles.tabBarStyle,
         }}>
         <Tab.Screen
           name="Home"
           component={HomeScreen}
           options={{
             headerTitle: '',
-            headerTransparent: true,
+            headerStyle: styles.homeHeaderStyle,
+            headerLeft: () => <HomeHeaderLeft />,
+            headerRight: () => <HomeHeaderRight />,
             tabBarIcon: ({focused}) => (
               <CustomTabBarIcon
                 name="Home"
@@ -136,5 +125,31 @@ const ApplicationNavigation = () => {
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  tabBarStyle: {
+    position: 'absolute',
+    bottom: 25,
+    left: 20,
+    right: 20,
+    elevation: 0,
+    backgroundColor: '#FFF',
+    borderRadius: 40,
+    height: 80,
+    borderStyle: 'solid',
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderRightWidth: 1,
+    borderLeftWidth: 1,
+    borderColor: '#EEF1F2',
+  },
+  homeHeaderStyle: {
+    backgroundColor: '#FFF',
+    height: 100,
+    elevation: 0,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+});
 
 export default ApplicationNavigation;
