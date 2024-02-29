@@ -3,7 +3,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {NavigationContainer} from '@react-navigation/native';
+import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import HomeHeaderLeft from '../components/HomeHeaderLeft';
 import HomeHeaderRight from '../components/HomeHeaderRight';
@@ -18,13 +18,18 @@ const Tab = createBottomTabNavigator();
 // @ts-ignore
 const CustomTabBarIcon = ({name, focused, color}) => {
   return (
-    <View style={{alignItems: 'center', justifyContent: 'center'}}>
+    <View
+      style={{
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
       <Image
         //@ts-ignore
         source={getIconSource(name)}
+        resizeMode="contain"
         style={{
-          width: 28,
-          height: 28,
+          width: 27,
+          height: 27,
           tintColor: focused ? color : Colors.gray,
           overflow: 'hidden',
         }}
@@ -57,9 +62,17 @@ const getIconSource = (name: any) => {
   }
 };
 
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#F7F8FA',
+  },
+};
+
 const ApplicationNavigation = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <Tab.Navigator
         screenOptions={{
           tabBarShowLabel: false,
@@ -141,11 +154,15 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderRightWidth: 1,
     borderLeftWidth: 1,
-    borderColor: '#EEF1F2',
+    borderRightColor: '#EEF1F2',
+    borderTopColor: '#EEF1F2',
+    borderLeftColor: '#EEF1F2',
+    borderBottomColor: '#EEF1F2',
+    paddingBottom: 0,
   },
   homeHeaderStyle: {
     backgroundColor: '#FFF',
-    height: 100,
+    height: 120,
     elevation: 0,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,

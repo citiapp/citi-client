@@ -14,7 +14,7 @@ const Promotions = () => {
           resizeMode="contain"
         />
         <Text style={styles.promoBtnText}>Its Buy One Get One Free Day!</Text>
-        <FeatherIcon name="arrow-right" size={22} color={'#787B82'} />
+        <FeatherIcon name="arrow-right" size={19} color={'#787B82'} />
       </TouchableOpacity>
     </View>
   );
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   promoImg: {
-    width: 40,
-    height: 40,
+    width: 35,
+    height: 35,
   },
   promoBtn: {
     flexDirection: 'row',
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   promoBtnText: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#1E232E',
     fontFamily: Fonts.ManropeBold,
   },

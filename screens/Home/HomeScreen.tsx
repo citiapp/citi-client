@@ -1,4 +1,5 @@
 import {SafeAreaView, StatusBar} from 'react-native';
+import HomeWrapper from '../../components/HomeWrapper';
 import Promotions from '../../components/Promotions';
 
 const HomeScreen = () => {
@@ -7,6 +8,7 @@ const HomeScreen = () => {
       <StatusBar barStyle="dark-content" backgroundColor="#FFF" />
       <SafeAreaView>
         <Promotions />
+        <HomeWrapper />
       </SafeAreaView>
     </>
   );
